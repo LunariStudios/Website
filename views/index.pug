@@ -1,0 +1,32 @@
+extends layout
+block extra_headers
+    link(rel='stylesheet', href='/stylesheets/index.css')
+mixin product(title, image)
+    .product_card
+        h1.product_title=title
+block content
+    #title_block
+        img(src="images/lunari_icon.jpg")#lunari_icon
+        #hero
+            #title_area
+                #title Lunari
+                #subtitle Development Studio
+            #description
+                h1.description_icon Desenvolva seus projetos com a gente!
+                p.description_icon Não importa qual seja a sua necessidade no mundo digital, nós atendemos!
+                p.description_icon Ao fundir uma agência de design com uma software house, nós oferecemos o melhor dos dois mundos
+                p.description_icon Quer dar um visual fenomenal ao seu produto? Um aplicativo de celular? Uma página na internet? Estamos aqui pra isso!
+            a(href="/contact").hero_link Entre em contato
+        #showroom
+            h1#showroom_title Alguns de nossos projetos
+            #showroom_gallery
+                +product("Phoenix App", "")
+                +product("Strobe", "")
+                +product("Tsuki Suite", "")
+    #presentation
+        #service_block
+            #design_block
+                #design_title Design
+            #software_block
+                #software_title Software
+        img(src="images/plus.png")#plus_symbol

@@ -1,0 +1,11 @@
+doctype html
+
+html
+    head
+        title= title
+        block extra_headers
+    body
+        script(src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js")
+        block content
+        script
+            include ../public/javascripts/init.js

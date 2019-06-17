@@ -1,0 +1,149 @@
+@import 'base';
+
+#title_block {
+  padding: 25px;
+  background: @primaryColor;
+}
+
+#title_area {
+  height: 100px;
+  display: inline-block;
+}
+
+@serviceBlockHeight: 500px;
+#title {
+  margin: 0;
+  font-size: 38pt;
+  text-transform: uppercase;
+}
+
+#subtitle {
+  font-weight: 300;
+  font-size: 16pt;
+  text-transform: uppercase;
+}
+
+.service_block {
+  display: inline-block;
+  width: 50%;
+  height: @serviceBlockHeight;
+
+
+}
+
+#design_block {
+  .service_block;
+  background: url("https://images.unsplash.com/photo-1475669698648-2f144fcaaeb1");
+  background-size: cover;
+}
+
+#software_block {
+  .service_block;
+  background: url("../images/splashart_software.png");
+  background-size: cover;
+}
+
+.service_title {
+  margin: 0;
+  padding: 50px 0 0 0;
+  display: flex;
+  justify-content: center;
+  font-size: 46pt;
+  font-weight: bold;
+  color: @primaryTextColor;
+  text-shadow: 2px 2px 5px rgba(16, 16, 16, 0.5);
+}
+
+#design_title {
+  .service_title;
+}
+
+#software_title {
+  .service_title;
+}
+
+#service_block {
+  .absolute;
+  width: 100%;
+}
+
+.absolute {
+  position: absolute;
+
+}
+
+@plusSize: 300px;
+#plus_symbol {
+  .absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin: 0;
+  height: @serviceBlockHeight;
+  width: @serviceBlockHeight;
+}
+
+#logo {
+  .inline;
+  height: 450px;
+}
+
+.hero_link {
+  margin: 0 10px;
+  text-decoration: none;
+  display: inline-block;
+  color: @primaryColor;
+  background: @primaryTextColor;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.hero_link:hover {
+}
+
+#hero {
+  .inline;
+  margin-left: 25px;
+  color: @primaryTextColor;
+}
+
+#description {
+  padding: 50px 0;
+}
+
+.description_icon {
+  font-weight: bold;
+}
+
+@iconMargin: 50px;
+#lunari_icon {
+  .inline;
+  height: 100px;
+  vertical-align: top;
+}
+
+#showroom_title {
+  text-align: center;
+}
+
+#showroom_gallery {
+  display: flex;
+  justify-content: center;
+}
+
+#showroom {
+  color: @primaryTextColor;
+}
+
+.product_title {
+  margin: 0;
+}
+
+.product_card {
+  .inline;
+  height: 150px;
+  width: 300px;
+  margin: 0 50px;
+  padding: 10px;
+  background-color: @primaryTextColor;
+  color: @primaryColor;
+}
