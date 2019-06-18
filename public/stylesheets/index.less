@@ -1,149 +1,306 @@
 @import 'base';
 
-#title_block {
-  padding: 25px;
-  background: @primaryColor;
-}
+@accentColor: #3ac0ff;
+@placeholderColor: rgba(255, 0, 255, 0.25);
+@headerHeight: 150px;
 
-#title_area {
-  height: 100px;
-  display: inline-block;
-}
-
-@serviceBlockHeight: 500px;
-#title {
-  margin: 0;
-  font-size: 38pt;
-  text-transform: uppercase;
-}
-
-#subtitle {
-  font-weight: 300;
-  font-size: 16pt;
-  text-transform: uppercase;
-}
-
-.service_block {
-  display: inline-block;
-  width: 50%;
-  height: @serviceBlockHeight;
-
-
-}
-
-#design_block {
-  .service_block;
-  background: url("https://images.unsplash.com/photo-1475669698648-2f144fcaaeb1");
-  background-size: cover;
-}
-
-#software_block {
-  .service_block;
-  background: url("../images/splashart_software.png");
-  background-size: cover;
-}
-
-.service_title {
-  margin: 0;
-  padding: 50px 0 0 0;
-  display: flex;
-  justify-content: center;
-  font-size: 46pt;
-  font-weight: bold;
-  color: @primaryTextColor;
-  text-shadow: 2px 2px 5px rgba(16, 16, 16, 0.5);
-}
-
-#design_title {
-  .service_title;
-}
-
-#software_title {
-  .service_title;
-}
-
-#service_block {
-  .absolute;
-  width: 100%;
-}
-
-.absolute {
+@primaryTextSubColor: hsl(0, 0%, 50%);
+#artwork {
   position: absolute;
-
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
-@plusSize: 300px;
-#plus_symbol {
-  .absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  margin: 0;
-  height: @serviceBlockHeight;
-  width: @serviceBlockHeight;
+body {
+  color: @primaryTextColor;
+}
+
+header {
+  padding: 0 100px;
+  height: @headerHeight;
+  display: flex;
+}
+
+#header_items {
+  padding: 20px;
+  display: flex;
+
 }
 
 #logo {
-  .inline;
-  height: 450px;
 }
 
-.hero_link {
-  margin: 0 10px;
-  text-decoration: none;
-  display: inline-block;
-  color: @primaryColor;
-  background: @primaryTextColor;
-  padding: 15px;
-  font-weight: bold;
+.fill {
+  flex: 1;
 }
 
-.hero_link:hover {
+.header_item {
+  margin: 0 20px;
+  width: 193px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 18pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.header_item_label {
+  display: inline;
+  text-align: center;
+  color: white;
+  transition: 200ms;
+}
+
+.header_item_label:hover {
+  padding: 0 0 5px 0;
+  border-bottom: @accentColor 5px solid;
+  border-radius: 2.5px;
 }
 
 #hero {
-  .inline;
-  margin-left: 25px;
-  color: @primaryTextColor;
-}
-
-#description {
-  padding: 50px 0;
-}
-
-.description_icon {
-  font-weight: bold;
-}
-
-@iconMargin: 50px;
-#lunari_icon {
-  .inline;
-  height: 100px;
-  vertical-align: top;
-}
-
-#showroom_title {
+  .section;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
   text-align: center;
 }
 
-#showroom_gallery {
+#hero_title {
+  .section_title;
+  font-size: 32pt;
+}
+
+#hero_subtitle {
+  color: @primaryTextSubColor;
+  font-size: 16pt;
+}
+
+.button {
+  margin: 30px auto;
+  display: inline-block;
+  font-weight: bolder;
+  font-size: 16pt;
+  padding: 10px 50px;
+  background: @primaryTextColor;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#hero_contact_button {
+  .button;
+  color: @primaryColor;
+}
+
+.section {
+
+  padding: 200px 0;
+}
+
+.section_title {
+  font-size: 24pt;
+  font-weight: bolder;
+}
+
+#about_us {
+  .section;
+  padding-top: 400px;
+  text-align: center;
+  color: @primaryColor;
+}
+
+#about_us_title {
+  .section_title
+
+}
+
+#about_us_gallery {
   display: flex;
   justify-content: center;
 }
 
-#showroom {
-  color: @primaryTextColor;
+.about_us_item {
+  margin: 0 50px;
+  width: 300px;
+  height: 300px;
 }
 
-.product_title {
+.about_us_item_description {
+  color: @primaryTextSubColor;
+}
+
+@aboutUsItemIconSize: 150px;
+.about_us_item_icon {
+  margin: 0 auto;
+  background: @placeholderColor;
+  height: @aboutUsItemIconSize;
+  width: @aboutUsItemIconSize;
+}
+
+#the_team {
+  .section;
+  color: @primaryColor;
+
+}
+
+#the_team_title {
+  .section_title;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.the_team_gallery {
+  display: flex;
+  justify-content: center;
+}
+
+.team_item_border {
+  border: #79e6fe solid 3px;
+  background: white;
+
+}
+
+@teamItemHeight: 250px;
+@teamItemWidth: 450px;
+.team_item {
+  .team_item_border;
+  display: block;
+  border-radius: 25px;
+  width: @teamItemWidth;
+  height: @teamItemHeight;
+  margin: 50px;
+}
+
+.team_item_wrapper {
+  position: absolute;
+  width: @teamItemWidth;
+  height: @teamItemHeight;
+}
+
+.team_item_content {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  padding: 25px 25px 25px ((@teamItemIconSize/2)+25px);
+}
+
+.team_item_label {
   margin: 0;
 }
 
-.product_card {
-  .inline;
-  height: 150px;
-  width: 300px;
-  margin: 0 50px;
-  padding: 10px;
-  background-color: @primaryTextColor;
+@teamItemIconSize: 150px;
+.team_item_icon {
+  .team_item_border;
+  position: absolute;
+  left: @teamItemIconSize / -2;
+  top: (@teamItemHeight - @teamItemIconSize)/2;
+  width: @teamItemIconSize;
+  height: @teamItemIconSize;
+  z-index: 1;
+  border-radius: @teamItemIconSize / 2;
+}
+
+#our_work {
+  .section;
+}
+
+#our_work_title {
+  .section_title;
+  text-align: center;
   color: @primaryColor;
 }
+
+#our_work_items {
+  display: flex;
+  justify-content: center;
+}
+
+#our_work_carousel {
+  position: absolute;
+  margin: 50px 0;
+  height: 400px;
+  left: 0;
+  right: 0;
+}
+
+@ourWorkCarouselHandleWidth: 200px;
+.our_work_carousel_handle {
+  position: absolute;
+  background: @placeholderColor;
+  width: @ourWorkCarouselHandleWidth;
+  top: 0;
+  bottom: 0;
+}
+
+#our_work_carousel_left_handle {
+  .our_work_carousel_handle;
+  left: 0;
+}
+
+#our_work_carousel_right_handle {
+  .our_work_carousel_handle;
+  right: 0;
+}
+
+#our_work_carousel_content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 0 50px;
+  left: @ourWorkCarouselHandleWidth;
+  right: @ourWorkCarouselHandleWidth;
+}
+
+.our_work_button {
+  .button;
+  margin: 0 25px;
+  color: @orangeAccent;
+}
+
+.carousel_item {
+  display: flex;
+  height: 100%;
+  margin: auto;
+}
+
+.carousel_item_title {
+  margin: 0;
+  color: @primaryColor;
+}
+
+.carousel_item_description {
+  margin: 0;
+  font-weight: bold;
+  color: @primaryColor;
+}
+
+.carousel_item_thumbnail {
+  width: 800px;
+  background: #6183be;
+  border-radius: 25px;
+}
+
+.carousel_item_subtitle {
+  color: @orangeAccent;
+  margin: 8px 0 16px 0;
+}
+
+.carousel_item_content {
+  display: flex;
+  justify-content: start;
+  flex-flow: column;
+  width: 300px;
+}
+
+.carousel_item_button {
+  .button;
+  color: @primaryColor;
+}
+

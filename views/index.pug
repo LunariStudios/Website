@@ -1,32 +1,126 @@
 extends layout
 block extra_headers
     link(rel='stylesheet', href='/stylesheets/index.css')
-mixin product(title, image)
-    .product_card
-        h1.product_title=title
+mixin header_item(title)
+    .header_item
+        .header_item_label=title
+
+
+mixin about_us_item(title, desc, icon)
+    .about_us_item
+        .about_us_item_icon
+        h1=title
+        h1.about_us_item_description=desc
+
+mixin team_member(title, desc, icon, skillsets)
+    .team_item
+        .team_item_wrapper
+            .team_item_icon
+            .team_item_content
+                h1.team_item_label=title
+                p.team_item_description=desc
+                ul
+                    for s in skillsets
+                        li=s
+mixin carousel_item(title, work_done, description)
+    .carousel_item
+        .carousel_item_thumbnail
+        .fill
+        .carousel_item_content
+            h1.carousel_item_title=title
+            p.carousel_item_subtitle=work_done
+            p.carousel_item_description=description
+            .fill
+            p.carousel_item_button Veja Mais
+
 block content
-    #title_block
-        img(src="images/lunari_icon.jpg")#lunari_icon
-        #hero
-            #title_area
-                #title Lunari
-                #subtitle Development Studio
-            #description
-                h1.description_icon Desenvolva seus projetos com a gente!
-                p.description_icon Não importa qual seja a sua necessidade no mundo digital, nós atendemos!
-                p.description_icon Ao fundir uma agência de design com uma software house, nós oferecemos o melhor dos dois mundos
-                p.description_icon Quer dar um visual fenomenal ao seu produto? Um aplicativo de celular? Uma página na internet? Estamos aqui pra isso!
-            a(href="/contact").hero_link Entre em contato
-        #showroom
-            h1#showroom_title Alguns de nossos projetos
-            #showroom_gallery
-                +product("Phoenix App", "")
-                +product("Strobe", "")
-                +product("Tsuki Suite", "")
-    #presentation
-        #service_block
-            #design_block
-                #design_title Design
-            #software_block
-                #software_title Software
-        img(src="images/plus.png")#plus_symbol
+    div
+        img(src="images/bg.svg" )#artwork
+        #content
+            header
+                img(src="../images/lunari_logo.svg")#logo
+                .fill
+                #header_items
+                    +header_item("Home")
+                    +header_item("Equipe")
+                    +header_item("Portfólio")
+                    +header_item("Contato")
+            section#hero
+                h1#hero_title Sistemas de outro mundo.
+                #hero_subtitle Encontre os desenvolvedores mais eficientes da galáxia
+                #hero_contact_button Entre em contato
+            section#about_us
+                h1#about_us_title O que nós fazemos
+                #about_us_gallery
+                    +about_us_item("Design",
+                        "Produtos responsivos são o que há de hoje, " +
+                        "seja ele um aplicativo, uma cafeteria, ou " +
+                        "até mesmo algo pessoal, como um website, ou " +
+                        "cartões de visita",
+                        "")
+                    +about_us_item(
+                        "Software",
+                        "Procuramos combinar o melhor do design e da " +
+                        "programação pra fornecer um produto único e " +
+                        "novo, atendendo às necessidades do cliente")
+                    //s+about_us_item("Produção", "Potato potato", "")
+            section#the_team
+                #the_team_title Alguns de nossos membros
+                .the_team_gallery
+                    +team_member(
+                        "Bruno Ribeiro Braga Silva Freire",
+                        "Animado e eficiênte, sempre em busca " +
+                        "de entregar o melhor produto possível.", "AAAAAAAA",
+                        [
+                            "Flutter / Dart",
+                            "C++",
+                            "Desenvolvimento Mobile",
+                            "APIs Gráficas"
+                        ]
+                    )
+                    +team_member(
+                        "Débora Tonel Ventura",
+                        "AAAAAA",
+                        "AAAAAAAA",
+                        [
+                            "Ser",
+                            "Hater"
+                        ]
+                    )
+                .the_team_gallery
+                    +team_member(
+                        "Victor Gabriel de Paula Xavier",
+                        "Designer digital que de tudo um pouco faz, mas é jóia nas ilustrações.",
+                        "AAAAAAAA",
+                        [
+                            "Ilustração",
+                            "Identidade visual",
+                            "UX/UI"
+                        ]
+                    )
+                    +team_member(
+                        "Caio Augusto Kühne Nercolini",
+                        "Designer UI/UX com paixão por games, especialmente Zelda e Fire Emblem.",
+                        "AAAAAAAA",
+                        [
+                            "UX/UI",
+                            "Identidade visual",
+                            "Edição de vídeo"
+                        ]
+                    )
+            section#our_work
+                h1#our_work_title Nosso Trabalho
+                #our_work_items
+                    .our_work_button Web
+                    .our_work_button Branding
+                    .our_work_button Apps
+                #our_work_carousel
+                    #our_work_carousel_left_handle
+                    #our_work_carousel_right_handle
+                    #our_work_carousel_content
+                        +carousel_item(
+                            "Phoenix", "Mobile & Rebranding",
+                            "Organic cream est, carajillo extra percolator " +
+                            "ristretto kopi-luwak single shot aroma. Robusta " +
+                            "strong, galão java est aftertaste crema. "
+                        )
