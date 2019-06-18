@@ -1,5 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 .vscode/*
+
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -227,3 +228,4 @@ typings/
 .yarn-integrity
 .env
 .next
+!bin
