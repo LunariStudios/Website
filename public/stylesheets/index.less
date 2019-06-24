@@ -70,14 +70,20 @@ header {
   text-align: center;
 }
 
-#hero_title {
-  .section_title;
+.hero_title {
+
   font-size: 32pt;
+  font-weight: bolder;
+  margin: 15px auto;
 }
 
 #hero_subtitle {
   color: @primaryTextSubColor;
   font-size: 16pt;
+}
+
+#hero_title_content {
+  margin: 20px;
 }
 
 .button {
@@ -102,8 +108,14 @@ header {
 }
 
 .section_title {
-  font-size: 24pt;
+  margin: 0 auto 50px auto;
+  width: fit-content;
+  alignment: center;
+  font-size: 32pt;
   font-weight: bolder;
+  padding-bottom: 20px;
+  border-bottom: 5px solid @primaryTextSubColor;
+  border-radius: 2.5px;
 }
 
 #about_us {
@@ -209,6 +221,7 @@ header {
 
 #our_work {
   .section;
+  height: 200px + @ourWorkCarouselHeight;
 }
 
 #our_work_title {
@@ -222,10 +235,11 @@ header {
   justify-content: center;
 }
 
+@ourWorkCarouselHeight: 400px;
 #our_work_carousel {
   position: absolute;
   margin: 50px 0;
-  height: 400px;
+  height: @ourWorkCarouselHeight;
   left: 0;
   right: 0;
 }
@@ -304,3 +318,33 @@ header {
   color: @primaryColor;
 }
 
+#contact {
+  .section;
+  text-align: center;
+
+}
+
+#contact_content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#contact_title {
+  .section_title;
+  text-align: center;
+  color: @primaryColor;
+}
+
+.contact_item {
+  width: 300px;
+  height: 400px;
+  background: @placeholderColor;
+}
+
+#contact_form {
+  .contact_item;
+}
+
+#contact_socials {
+  .contact_item;
+}

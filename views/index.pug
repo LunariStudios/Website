@@ -35,7 +35,6 @@ mixin carousel_item(title, work_done, description)
 
 block content
     div
-        img(src="images/bg.svg" )#artwork
         #content
             header
                 img(src="../images/lunari_logo.svg")#logo
@@ -46,8 +45,10 @@ block content
                     +header_item("Portfólio")
                     +header_item("Contato")
             section#hero
-                h1#hero_title Sistemas de outro mundo.
-                #hero_subtitle Encontre os desenvolvedores mais eficientes da galáxia
+                #hero_title_content
+                    h1.hero_title Sistemas de outro mundo.
+                    h1.hero_title Visuais de tirar o fôlego.
+                #hero_subtitle Encontre os desenvolvedores e designers mais eficientes da galáxia
                 #hero_contact_button Entre em contato
             section#about_us
                 h1#about_us_title O que nós fazemos
@@ -124,3 +125,8 @@ block content
                             "ristretto kopi-luwak single shot aroma. Robusta " +
                             "strong, galão java est aftertaste crema. "
                         )
+            section#contact
+                h1#contact_title Contatos imediatos
+                #contact_content
+                    #contact_form
+                    #contact_socials
