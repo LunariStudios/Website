@@ -44,6 +44,7 @@ header {
   font-weight: bolder;
   font-size: 18pt;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
 
@@ -65,8 +66,10 @@ header {
 #hero {
   .section;
   display: flex;
+  top: 200px;
   flex-flow: column;
   justify-content: center;
+  padding: 200px 0;
   text-align: center;
 }
 
@@ -99,12 +102,15 @@ header {
 
 #hero_contact_button {
   .button;
+  margin-top: 75px;
   color: @primaryColor;
 }
 
 .section {
-
-  padding: 200px 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  //padding: 200px 0;
 }
 
 .section_title {
@@ -120,7 +126,8 @@ header {
 
 #about_us {
   .section;
-  padding-top: 400px;
+  top: 950px;
+  padding: 300px 0 200px 0;
   text-align: center;
   color: @primaryColor;
 }
@@ -138,7 +145,6 @@ header {
 .about_us_item {
   margin: 0 50px;
   width: 300px;
-  height: 300px;
 }
 
 .about_us_item_description {
@@ -148,15 +154,22 @@ header {
 @aboutUsItemIconSize: 150px;
 .about_us_item_icon {
   margin: 0 auto;
-  background: @placeholderColor;
   height: @aboutUsItemIconSize;
   width: @aboutUsItemIconSize;
 }
 
 #the_team {
   .section;
+  top: 2000px;
   color: @primaryColor;
+  padding: 200px 0;
 
+}
+
+#content {
+  height: 5400px;
+  background: url("../images/bg.svg") no-repeat center;
+  background-size: cover;
 }
 
 #the_team_title {
@@ -200,27 +213,39 @@ header {
   bottom: 0;
   left: 0;
   width: 300px;
-  padding: 25px 25px 25px ((@teamItemIconSize/2)+25px);
+  padding: 25px 25px 25px ((@teamItemCircleSize/2)+25px);
 }
 
 .team_item_label {
   margin: 0;
 }
 
-@teamItemIconSize: 150px;
+@teamItemCircleSize: 150px;
+@teamItemIconSize: 100px;
+@teamItemIconMargin: (@teamItemCircleSize - @teamItemIconSize)/2;
 .team_item_icon {
-  .team_item_border;
   position: absolute;
-  left: @teamItemIconSize / -2;
-  top: (@teamItemHeight - @teamItemIconSize)/2;
+  left: @teamItemIconMargin;
+  top: @teamItemIconMargin;
   width: @teamItemIconSize;
   height: @teamItemIconSize;
+}
+
+.team_item_circle {
+  .team_item_border;
+  position: absolute;
+  left: @teamItemCircleSize / -2;
+  top: (@teamItemHeight - @teamItemCircleSize)/2;
+  width: @teamItemCircleSize;
+  height: @teamItemCircleSize;
   z-index: 1;
-  border-radius: @teamItemIconSize / 2;
+  border-radius: @teamItemCircleSize / 2;
 }
 
 #our_work {
   .section;
+  top: 3300px;
+  padding: 200px 0;
   height: 200px + @ourWorkCarouselHeight;
 }
 
@@ -274,14 +299,23 @@ header {
 
 .our_work_button {
   .button;
+  cursor: default;
   margin: 0 25px;
   color: @orangeAccent;
 }
 
 .carousel_item {
   display: flex;
-  height: 100%;
-  margin: auto;
+  height: 500px;
+  width: 80%;
+  margin: auto 100px;
+}
+
+.carousel_item_info {
+  display: flex;
+  flex-flow: column;
+  padding: 0 50px;
+  margin-bottom: 50px;
 }
 
 .carousel_item_title {
@@ -298,6 +332,7 @@ header {
 .carousel_item_thumbnail {
   width: 800px;
   background: #6183be;
+  background-size: cover;
   border-radius: 25px;
 }
 
@@ -320,31 +355,45 @@ header {
 
 #contact {
   .section;
+  top: 5000px;
   text-align: center;
 
 }
 
 #contact_content {
+  margin: auto;
   display: flex;
-  justify-content: space-evenly;
+  width: fit-content;
+  justify-content: center;
+
 }
 
 #contact_title {
   .section_title;
+  border: none;
+  margin: 0 auto;
   text-align: center;
+  color: @primaryTextColor;
+}
+
+.contact_input {
+  background: white;
+  padding: 10px;
+  text-align: left;
+  margin: 25px 0;
+  font-weight: bold;
   color: @primaryColor;
+  border-radius: 25px;
 }
 
-.contact_item {
-  width: 300px;
-  height: 400px;
-  background: @placeholderColor;
+.contact_input_large {
+  .contact_input;
+  height: 200px;
 }
 
-#contact_form {
-  .contact_item;
-}
-
-#contact_socials {
-  .contact_item;
+.contact_socials {
+  width: 64px;
+  height: 64px;
+  margin: 30px;
+  color: red;
 }
